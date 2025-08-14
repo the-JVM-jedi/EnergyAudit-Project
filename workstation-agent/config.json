@@ -1,0 +1,7 @@
+﻿{
+    "ServerUri": "http://172.13.100.240/energy_audit/EA/api/ingest.php",
+    "ComputerNumber": "Test-PC-01",
+    "UploadIntervalSeconds": 60,
+    "SampleIntervalSeconds": 20,
+    "LogDirectory": "C:\\ProgramData\\WorkstationMonitor\\Logs"
+}
