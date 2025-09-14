@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Auditor - Sustainable Computing</title>
+    <!-- Corrected path to the CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">EACL Monitor</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="calculator.html" class="active">Audit</a></li>
+            <li><a href="analysis.html">Analysis</a></li>
+            <li><a href="recommendations.html">Recommendations</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Energy Consumption Auditor</h1>
+        <p>Build a list of devices to calculate total consumption.</p>
+    </header>
+
+    <main>
+        <!-- Device Entry Form (No changes needed here) -->
+        <div class="card">
+            <h2>Step 1: Add a Device to the List</h2>
+            <form id="device-form" class="calculator-form">
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="device-class">Device Class</label>
+                        <div class="class-input-wrapper">
+                            <select id="device-class">
+                                <option value="Computing">Computing (PC, Laptop)</option>
+                                <option value="Display">Display (Monitor, TV)</option>
+                                <option value="Lighting">Lighting</option>
+                                <option value="HVAC">HVAC (Heating, Vents)</option>
+                                <option value="Server">Server</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <button type="button" id="add-class-btn" title="Add New Class">+</button>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="device-desc">Description</label>
+                        <input type="text" id="device-desc" placeholder="e.g., Dell OptiPlex PC">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="device-power">Power Rating (Watts)</label>
+                        <input type="number" id="device-power" placeholder="e.g., 150">
+                    </div>
+                    <div class="input-group">
+                        <label for="device-qty">Quantity</label>
+                        <input type="number" id="device-qty" value="1">
+                    </div>
+                    <div class="input-group">
+                        <label for="device-time">Time On (Hours/Day)</label>
+                        <input type="number" id="device-time" placeholder="e.g., 8">
+                    </div>
+                </div>
+                <button type="submit" class="add-device-btn">Add to List ↓</button>
+            </form>
+        </div>
+
+        <!-- Device List Table (No changes needed here) -->
+        <div class="card">
+            <h2>Step 2: Review Your Device List</h2>
+            <div class="table-wrapper">
+                <table id="device-table">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Description</th>
+                            <th>Power</th>
+                            <th>Qty</th>
+                            <th>Hours/Day</th>
+                            <th>Daily kWh</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="device-list-body">
+                        <!-- Device rows will be injected here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+             <p id="empty-list-msg">Your device list is empty. Add a device using the form above.</p>
+        </div>
+
+
+        <!-- ================================================================= -->
+        <!--   CORRECTED: Single, combined area for calculation and saving     -->
+        <!-- ================================================================= -->
+        <div class="calculation-area">
+             <h2>Step 3: Calculate & Save</h2>
+            
+             <!-- Button to show a quick total without saving -->
+            <button id="calculate-total-btn">Calculate Grand Total</button>
+            
+            <!-- NEW: The button that saves data to the PHP backend -->
+            <button id="save-to-db-btn" class="save-button">Save Audit to Database</button>
+
+            <!-- The container to display the results from 'Calculate Grand Total' -->
+            <div id="results-container" class="card hidden">
+                <h3>Estimated Daily Consumption:</h3>
+                <p id="total-kwh" class="metric">0 kWh</p>
+                <p>This is equivalent to a carbon footprint of approximately <strong id="total-co2">0 kg CO₂e</strong>.</p>
+                <small>Note: Carbon footprint is an estimate based on a grid factor of 0.475 kg CO₂e/kWh.</small>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Your University Name. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Corrected path to the JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analysis - Sustainable Computing</title>
+    <link rel="stylesheet" href="style.css">
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="logo">EACL Monitor</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="calculator.html">Audit</a></li>
+            <li><a href="analysis.html" class="active">Analysis</a></li>
+            <li><a href="recommendations.html">Recommendations</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Visual Data Analysis</h1>
+        <p>Explore your saved audits with interactive charts.</p>
+    </header>
+
+    <main>
+        <div class="card" id="chart-controls-card">
+            <h2>Analysis Dashboard</h2>
+            <div id="chart-controls">
+
+                <!-- Step 1: Primary Control -->
+                <div class="control-group primary">
+                    <label for="audit-select">Select an Audit</label>
+                    <div class="custom-select-wrapper">
+                        <select id="audit-select">
+                            <option value="">-- Loading Audits... --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Step 2: Dynamic Controls -->
+                <fieldset id="dynamic-controls" disabled>
+                    <div class="controls-grid">
+                        <!-- Graph Type -->
+                        <div class="control-group">
+                            <label for="chart-type-select">Graph Type</label>
+                            <div class="custom-select-wrapper">
+                                <select id="chart-type-select">
+                                    <option value="bar">Bar Chart</option>
+                                    <option value="pie">Pie Chart</option>
+                                    <option value="doughnut">Doughnut Chart</option>
+                                    <option value="line">Line Graph</option>
+                                    <option value="polarArea">Polar Area Chart</option>
+                                    <option value="radar">Radar Chart</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Labels (X-Axis) -->
+                        <div class="control-group">
+                            <label for="xaxis-select">Group By (Labels)</label>
+                            <div class="custom-select-wrapper">
+                                <select id="xaxis-select"></select>
+                            </div>
+                        </div>
+
+                        <!-- Data (Y-Axis) -->
+                        <div class="control-group">
+                            <label for="yaxis-select">Value Of (Data)</label>
+                            <div class="custom-select-wrapper">
+                                <select id="yaxis-select"></select>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+        <div class="card">
+            <div id="chart-container">
+                <canvas id="myChart"></canvas>
+                <p id="chart-info-message">Please select an audit to generate a chart.</p>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2025 Your University Name. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
