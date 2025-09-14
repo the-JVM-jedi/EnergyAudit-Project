@@ -1,0 +1,640 @@
+/* --- Google Font & Global Styles --- */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+:root {
+    --primary-color: #00796b; /* A nice teal color */
+    --secondary-color: #f0f0f0;
+    --dark-color: #333;
+    --light-color: #fff;
+    --box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: var(--dark-color);
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+/* --- Navigation Bar --- */
+nav {
+    background-color: var(--light-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: var(--box-shadow);
+}
+
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* --- Header --- */
+header {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.intro {
+    background-color: var(--light-color); /* Uses your theme's white color */
+    text-align: center; /* Centers all the text inside */
+    padding: 3rem 1.5rem; /* Generous padding for a 'hero' feel */
+    margin-bottom: 2rem; /* Creates space between this and the cards below */
+    border-radius: 8px;
+    box-shadow: var(--box-shadow); /* Consistent shadow with your cards */
+}
+
+.intro h1 {
+    font-size: 2.8rem; /* Makes the main title large and impactful */
+    color: var(--primary-color); /* Uses your theme's main teal color */
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.intro p {
+    font-size: 1.1rem; /* Slightly larger font for readability */
+    line-height: 1.7; /* Increased line spacing for easier reading */
+    color: #555; /* A softer dark gray instead of pure black */
+    max-width: 800px; /* Constrains line width for better readability */
+    margin: 0 auto 1rem auto; /* Centers the paragraph block and adds space below */
+}
+
+/* --- Responsive adjustments for smaller screens --- */
+@media (max-width: 768px) {
+    .intro h1 {
+        font-size: 2.2rem; /* Reduce font size on mobile */
+        line-height: 1.2;
+    }
+
+    .intro {
+        padding: 2rem 1rem;
+    }
+}
+
+/* --- Cards for Content --- */
+.card-container {
+    display: flex;
+    flex-direction: column; /* This is the key: stacks items vertically */
+    gap: 1.5rem;           /* This creates space between the stacked cards */
+}
+
+.card {
+    background-color: var(--light-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+    /* margin-bottom is no longer needed because 'gap' on the container handles it */
+}
+
+.card h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.card .metric {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.card ul {
+    list-style-position: inside;
+}
+
+/* --- Dashboard Placeholders (no changes needed here) --- */
+.chart-card h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.chart-placeholder {
+    background-color: var(--secondary-color);
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    color: #888;
+    font-weight: 700;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+.calculator-form {
+    background-color: #f8f9fa; /* A very light, clean grey background */
+    padding: 1.5rem;
+    margin-top: 1.5rem; /* Adds space between the 'Step 1' title and the form */
+    border: 1px solid #e0e0e0; /* A soft border to define the form area */
+    border-radius: 8px;
+}
+
+/* --- Improve the responsive grid layout for form rows --- */
+.calculator-form .form-row {
+    display: grid;
+    /* Creates a flexible grid that adapts to screen size */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+/* Ensure last row doesn't have extra margin */
+.calculator-form .form-row:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Style the Labels for better hierarchy --- */
+.calculator-form .input-group label {
+    display: block;
+    font-weight: 600; /* Bolder than normal text, but not fully bold */
+    color: #333;
+    margin-bottom: 8px; /* More space between label and input */
+    font-size: 0.9rem;
+}
+
+/* --- The Core Style for all Text Inputs and Select Dropdowns --- */
+.calculator-form input[type="text"],
+.calculator-form input[type="number"],
+.calculator-form select {
+    width: 100%;
+    padding: 12px 15px; /* More comfortable internal padding */
+    font-size: 1rem;
+    font-family: inherit; /* Ensures it uses the site's 'Lato' font */
+    color: #333;
+    background-color: #fff; /* A clean white background */
+    border: 1px solid #ced4da; /* A standard, professional border color */
+    border-radius: 6px; /* Slightly softer corners */
+
+    /* The magic transition for smooth focus effects */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* --- CRITICAL: The "Focus" State --- */
+/* This is what happens when you click on an input field */
+.calculator-form input:focus,
+.calculator-form select:focus {
+    outline: none; /* Removes the ugly default browser outline */
+    border-color: var(--primary-color); /* Highlights the border with your theme color */
+    box-shadow: 0 0 0 4px rgba(0, 121, 107, 0.15); /* Adds a soft, modern "glow" effect */
+}
+
+/* --- Upgraded "Add to List" Button Style --- */
+.add-device-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 0.5px; /* A little breathing room for the text */
+    text-transform: uppercase; /* Makes it feel like a primary action */
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-device-btn:hover {
+    background-color: #005a4f; /* A darker shade on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px); /* A satisfying "lift" effect */
+}
+
+.class-input-wrapper {
+    display: flex;       /* Aligns the dropdown and button side-by-side */
+    align-items: center; /* Vertically centers the + in the button */
+}
+
+/* --- The specific CSS for the 'Add New Class' (+) button --- */
+#add-class-btn {
+    width: 40px;         /* Fixed width */
+    height: 40px;        /* Fixed height, makes it a square */
+    margin-left: 10px;   /* Space between the dropdown and the button */
+    border: 1px solid #ccc; /* A standard, soft border */
+    background: #f0f0f0;    /* A light grey background */
+    font-size: 1.5rem;   /* Makes the '+' symbol larger */
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+    border-radius: 5px;  /* Slightly rounded corners */
+    flex-shrink: 0;      /* Prevents the button from shrinking on small screens */
+    transition: background-color 0.2s ease; /* Smooth hover effect */
+}
+
+#add-class-btn:hover {
+    background: #e0e0e0; /* Slightly darker grey on hover */
+    border-color: #bbb;
+}
+
+/* --- Device Table Styles --- */
+.table-wrapper {
+    overflow-x: auto; /* For responsive tables on small screens */
+}
+
+#device-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#device-table th, #device-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+#device-table th {
+    background-color: var(--secondary-color);
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+#device-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#device-table .remove-btn {
+    background-color: #e57373; /* A soft red */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#device-table .remove-btn:hover {
+    background-color: #c62828; /* A darker red */
+}
+
+#empty-list-msg {
+    text-align: center;
+    color: #777;
+    padding: 2rem;
+    font-style: italic;
+}
+
+#calculate-total-btn {
+    background-color: #ff8f00; /* An orange for the final action */
+    color: var(--light-color);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+#calculate-total-btn:hover {
+    background-color: #e65100;
+}
+
+.calculation-area {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: var(--light-color);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+.calculation-area h2 {
+    margin-bottom: 1.5rem;
+}
+
+/* Adds some space around the action buttons */
+.calculation-area button {
+    margin: 0 0.5rem;
+}
+
+/* --- Style for the new "Save Audit to Database" button --- */
+.save-button {
+    background-color: #4CAF50; /* A vibrant green for a "save" action */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.save-button:hover {
+    background-color: #45a049;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transform: translateY(-2px); /* A satisfying "lift" effect */
+}
+
+
+/* --- Results container within the calculation area --- */
+/* This overrides some .card styles for a unique look when results are shown */
+#results-container {
+    text-align: center;
+    padding: 2rem;
+    background-color: #e8f5e9; /* A light green background for results */
+    border-left: 5px solid var(--primary-color);
+    margin-top: 2rem; /* Space above the results box when it appears */
+}
+
+
+/* --- Utility class to hide/show the results container --- */
+.hidden {
+    display: none;
+}
+
+.recommendation-category h2 {
+    margin-bottom: 1.5rem; /* Add more space below the category title */
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.recommendation-item {
+    display: flex; /* The core of the side-by-side layout */
+    justify-content: space-between; /* Pushes text and impact to opposite ends */
+    align-items: center; /* Vertically aligns them perfectly */
+    padding: 1.5rem 0.5rem;
+    border-bottom: 1px solid #e0e0e0; /* A soft line between items */
+}
+
+/* Prevents a double border at the bottom of the card */
+.recommendation-category .recommendation-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0.5rem;
+}
+
+.recommendation-text {
+    flex-basis: 70%; /* Gives the text part more space */
+    padding-right: 1.5rem;
+}
+
+.recommendation-text h3 {
+    font-size: 1.3rem;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.recommendation-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+.recommendation-impact {
+    flex-basis: 30%; /* Gives the impact part less space */
+    text-align: right; /* Aligns the number and label to the right */
+    flex-shrink: 0; /* Prevents this column from shrinking too much */
+}
+
+.impact-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color); /* Uses your theme's main color */
+    line-height: 1;
+}
+
+.impact-label {
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 600;
+}
+
+/* Special styling for the final summary card */
+.summary-card {
+    background-color: #e8f5e9; /* A light, eco-friendly green */
+    border-left: 5px solid #4CAF50; /* A darker green accent */
+    margin-top: 2rem;
+}
+
+.summary-card h2 {
+    color: #2e7d32; /* A dark, readable green */
+}
+
+/* --- Responsive adjustments for smaller screens --- */
+@media (max-width: 768px) {
+    .recommendation-item {
+        flex-direction: column; /* Stack text and impact vertically on mobile */
+        align-items: flex-start; /* Align to the left instead of center */
+        text-align: left;
+    }
+
+    .recommendation-impact {
+        text-align: left; /* Align impact numbers to the left on mobile */
+        margin-top: 1rem; /* Add space between the text and the impact score */
+    }
+
+    .impact-number {
+        font-size: 2.5rem;
+    }
+}
+
+
+/* ================================================================ */
+/*       Enhanced Styles for Analysis Page Controls                 */
+/* ================================================================ */
+
+/* The main container for all the control dropdowns */
+#chart-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Style the fieldset that holds the dynamic controls */
+#dynamic-controls {
+    border: 1px solid #e0e0e0; /* A soft border to group the controls */
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 0;
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
+}
+
+/* When the fieldset is disabled, make it fade out */
+#dynamic-controls:disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* --- Style for Labels in the Analysis section --- */
+#chart-controls label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+/* --- The Core Style for all <select> Dropdowns on this page --- */
+#chart-controls-card {
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    border: none;
+    box-shadow: 7px 7px 15px #c8c8c8, -7px -7px 15px #ffffff; /* Neumorphic style shadow */
+}
+
+#chart-controls-card h2 {
+    text-align: center;
+    color: var(--dark-color);
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+/* --- Container for the control groups --- */
+#chart-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* --- Primary control for selecting the audit --- */
+.control-group.primary {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 1.5rem;
+}
+
+/* --- Fieldset for dynamic (initially disabled) controls --- */
+#dynamic-controls {
+    border: none;
+    padding: 0;
+    margin: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Smooth fade/slide-in effect */
+}
+
+/* When disabled, fade out and shift down slightly */
+#dynamic-controls:disabled {
+    opacity: 0.3;
+    transform: translateY(10px);
+    pointer-events: none;
+}
+
+/* The row that holds the chart type and axis selectors */
+.controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+/* --- Styling for Labels --- */
+.control-group label {
+    display: block;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --- The Core Custom Dropdown Style --- */
+.custom-select-wrapper {
+    position: relative;
+    display: block;
+}
+
+#chart-controls select {
+    /* Basic Appearance */
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #333;
+    background-color: #f0f2f5; /* A subtle, modern input background color */
+    border: 2px solid transparent; /* Start with a transparent border */
+    border-radius: 8px;
+    
+    /* Hides the default browser arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* Smooth transitions for a premium feel */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* --- Custom Dropdown Arrow using an SVG icon --- */
+.custom-select-wrapper::after {
+    content: '▼';
+    font-size: 1rem;
+    color: #888;
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Allows clicks to go through to the select box */
+    transition: color 0.2s ease;
+}
+
+/* --- Hover & Focus States for the Custom Dropdown --- */
+#chart-controls select:hover {
+    border-color: #ccc;
+}
+
+#chart-controls select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(0, 121, 107, 0.15);
+    background-color: #fff;
+}
+
+.custom-select-wrapper:has(select:focus)::after {
+    color: var(--primary-color);
+}
